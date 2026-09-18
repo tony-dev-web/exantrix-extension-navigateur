@@ -1,0 +1,36 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Exantrix</title>
+<style>
+body{width:340px;margin:0;padding:14px;font:13px/1.45 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1b1b1b;background:#fff}
+h1{font-size:15px;margin:0 0 10px;display:flex;align-items:center;gap:8px}h1 img{width:22px;height:22px}
+label{display:block;font-size:11px;font-weight:600;color:#69747f;margin:8px 0 3px}
+input,select,textarea{width:100%;box-sizing:border-box;font:inherit;padding:6px 8px;border:1px solid #d9dde1;border-radius:6px;background:#fff}
+textarea{min-height:52px;resize:vertical}
+.btn{display:block;width:100%;margin-top:10px;padding:9px;border:0;border-radius:8px;background:#03c600;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.btn.gris{background:#eef0f2;color:#1b1b1b}
+.ok{background:rgba(3,198,0,.14);border:1px solid #03c600;border-radius:6px;padding:6px 8px;margin-top:8px}
+.ko{background:#fde2e1;border:1px solid #a12622;border-radius:6px;padding:6px 8px;margin-top:8px}
+.mut{color:#69747f;font-size:11px}
+.img{display:flex;gap:4px;margin-top:6px}.img img{width:44px;height:44px;object-fit:cover;border-radius:4px;border:1px solid #d9dde1}
+.row{display:flex;gap:8px}.row>div{flex:1}
+a{color:#03c600}
+</style></head><body>
+<h1><img src="icones/32.png" alt="">Vendre sur Exantrix</h1>
+<div id="config">
+  <label for="jeton">Jeton API Exantrix</label><input type="password" id="jeton" autocomplete="off" placeholder="Espace vendeur › API">
+  <label for="categorie">Catégorie Exantrix</label>
+  <select id="categorie"><option value="3d">Impression 3D</option><option value="dtf">Transfert DTF</option><option value="textile">Textile</option><option value="flocage">Flocage</option><option value="decoupe">Découpe et gravure</option></select>
+  <button class="btn gris" id="enregistrer">Enregistrer</button>
+  <p class="mut">Le jeton se génère dans votre <a href="https://exantrix.com/a2/vendeur" target="_blank">espace vendeur</a>. Il reste dans votre navigateur.</p>
+</div>
+<div id="fiche" hidden>
+  <label for="titre">Titre (60)</label><input id="titre" maxlength="60">
+  <div class="row"><div><label for="reference">Référence</label><input id="reference" maxlength="50"></div><div><label for="prix">Prix TTC €</label><input id="prix" inputmode="decimal"></div></div>
+  <div class="row"><div><label for="stock">Stock</label><input id="stock" type="number" min="0" value="1"></div><div><label for="cat2">Catégorie</label><select id="cat2"><option value="3d">Impression 3D</option><option value="dtf">Transfert DTF</option><option value="textile">Textile</option><option value="flocage">Flocage</option><option value="decoupe">Découpe et gravure</option></select></div></div>
+  <label for="description">Description (160)</label><textarea id="description" maxlength="160"></textarea>
+  <div class="img" id="images"></div>
+  <button class="btn" id="envoyer">Envoyer sur Exantrix</button>
+  <p class="mut">Nouveau produit : validé par Exantrix avant mise en ligne. Référence connue : mise à jour. <a href="#" id="regler">Réglages</a></p>
+</div>
+<div id="message"></div>
+<script src="popup.js"></script>
+</body></html>
